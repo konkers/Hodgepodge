@@ -439,9 +439,17 @@ public class TweaksConfig {
     @Config.DefaultBoolean(false)
     public static boolean disableChunkTerrainGeneration;
 
+    @Config.Comment("Disable terrain generation for new generated chunks in non-overworld dimension (all blocks become air, biomes remain)")
+    @Config.DefaultBoolean(false)
+    public static boolean disableNonOWChunkTerrainGeneration;
+
     @Config.Comment("Disable world type associated chunk population for new generated chunks (e.g. vanilla structures in Overworld)")
     @Config.DefaultBoolean(false)
     public static boolean disableWorldTypeChunkPopulation;
+
+    @Config.Comment("Limit world type associated chunk population to 15x15 chunks around spawn.")
+    @Config.DefaultBoolean(false)
+    public static boolean limitWorldTypeChunkPopulation;
 
     @Config.Comment("Disable all extra mod chunk population for new generated chunks (e.g. Natura's clouds)")
     @Config.DefaultBoolean(false)

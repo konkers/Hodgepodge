@@ -1226,9 +1226,17 @@ public enum Mixins implements IMixins {
             .addCommonMixins("minecraft.MixinChunkProviderServer_DisableTerrain")
             .setApplyIf(() -> TweaksConfig.disableChunkTerrainGeneration)
             .setPhase(Phase.EARLY)),
+    DISABLE_NON_OW_CHUNK_TERRAIN_GENERATION(new MixinBuilder()
+            .addCommonMixins("minecraft.MixinChunkProviderServer_DisableNonOWTerrain")
+            .setApplyIf(() -> TweaksConfig.disableNonOWChunkTerrainGeneration)
+            .setPhase(Phase.EARLY)),
     DISABLE_WORLD_TYPE_CHUNK_POPULATION(new MixinBuilder("Disable chunk population tied to chunk generation (ores/structure)")
             .addCommonMixins("minecraft.MixinChunkProviderServer_DisablePopulation")
             .setApplyIf(() -> TweaksConfig.disableWorldTypeChunkPopulation)
+            .setPhase(Phase.EARLY)),
+    LIMIT_WORLD_TYPE_CHUNK_POPULATION(new MixinBuilder("Limit chunk population tied to chunk generation (ores/structure) to 15x15 chunks around spawn")
+            .addCommonMixins("minecraft.MixinChunkProviderServer_LimitPopulation")
+            .setApplyIf(() -> TweaksConfig.limitWorldTypeChunkPopulation)
             .setPhase(Phase.EARLY)),
     DISABLE_MODDED_CHUNK_POPULATION(new MixinBuilder("Disable all other mod chunk population (e.g. Natura clouds")
             .addCommonMixins("minecraft.MixinChunkProviderServer_DisableModGeneration")
